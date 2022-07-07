@@ -38,19 +38,23 @@ sqlite3 prisma/dev.db
 
 ``` shell
 # create todo
-curl -X POST -H "Content-Type: application/json" -d '{ "title": "test", "content": "Test Todo Items" }' localhost:3000/api/create-todo
+curl -X POST -H "Content-Type: application/json" -d '{ "title": "test", "content": "Test Todo Items" }' localhost:3000/api/todos
 
 # get todos
-curl localhost:3000/api/get-todos | jq
+curl localhost:3000/api/todos | jq
+
+# get todo
+curl localhost:3000/api/todos/1 | jq
 
 # update todo
-curl -X PUT -H "Content-Type: application/json" -d '{ "id": 1, "title": "test", "content": "Update Test Todo Items" }' localhost:3000/api/update-todo
+curl -X PUT -H "Content-Type: application/json" -d '{ "title": "test", "content": "Update Test Todo Items" }' localhost:3000/api/todos/1
 
 # delete todo
-curl -X DELETE -H "Content-Type: application/json" -d '{ "id": 1 }' localhost:3000/api/delete-todo
+curl -X DELETE -H "Content-Type: application/json" localhost:3000/api/todos/1
 ```
 
 ## 参考
 
-- [Prisma + Next.jsでシンプルなCRUD APIを作成する](https://illumination-k.dev/techblog/posts/prisma_next_simple_crud)
 - [prisma.io](https://www.prisma.io/)
+- [Prisma + Next.jsでシンプルなCRUD APIを作成する](https://illumination-k.dev/techblog/posts/prisma_next_simple_crud)
+- [Next.jsでPrismaを使ってデータベースを作る](https://omkz.net/next-js-prisma/)
