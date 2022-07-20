@@ -24,7 +24,7 @@ function CustomizeFileUpload() {
     e.preventDefault();
     const url = `/api/file`;
     const data = new FormData();
-    files.forEach((file) => {
+    files.forEach((file: File) => {
       data.append("file", file);
     });
     const headers = { "content-type": "multipart/form-data" };
@@ -46,7 +46,7 @@ function CustomizeFileUpload() {
             </tr>
           </thead>
           <tbody>
-            {files.map((file) => (
+            {files.map((file: File) => (
               <tr key={file.name}>
                 <td>{file.name}</td>
                 <td>{file.type}</td>
@@ -59,6 +59,7 @@ function CustomizeFileUpload() {
       </div>
 
       <button onClick={selectFiles}>画像選択</button>
+      <button onClick={sendFiles}>送信！</button>
       <button onClick={resetFiles}>リセット</button>
       <input
         hidden
@@ -67,8 +68,6 @@ function CustomizeFileUpload() {
         onChange={onFileInputChange}
         multiple
       />
-      <br />
-      <button onClick={sendFiles}>送信！</button>
     </div>
   );
 }
